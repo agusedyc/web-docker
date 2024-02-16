@@ -1,12 +1,14 @@
 cat <<'MSG'
-        _ _  __                                             _
-       (_|_)/ _|                                           | |
-  _   _ _ _| |_ _ __ __ _ _ __ ___   _____      _____  _ __| | __
- | | | | | |  _| '__/ _` | '_ ` _ \ / _ \ \ /\ / / _ \| '__| |/ /
- | |_| | | | | | | | (_| | | | | | |  __/\ V  V / (_) | |  |   <
-  \__, |_|_|_| |_|  \__,_|_| |_| |_|\___| \_/\_/ \___/|_|  |_|\_\
-   __/ |
-  |___/
+
+ _   __           _           _ _      _            
+| | / /          (_)         | (_)    | |           
+| |/ /  __ _ _ __ _  __ _  __| |_   __| | _____   __
+|    \ / _` | '__| |/ _` |/ _` | | / _` |/ _ \ \ / /
+| |\  \ (_| | |  | | (_| | (_| | || (_| |  __/\ V / 
+\_| \_/\__,_|_|  |_|\__,_|\__,_|_(_)__,_|\___| \_/  
+                                                    
+                                                    
+Forked From : https://github.com/yiisoft/yii2-docker
 
 MSG
 
@@ -15,7 +17,5 @@ echo "PHP version: ${PHP_VERSION}"
 if ! shopt -oq posix; then
   if [ -f /usr/share/bash-completion/bash_completion ]; then
     . /usr/share/bash-completion/bash_completion
-  elif [ -f /etc/bash_completion.d/yii ]; then
-    . /etc/bash_completion.d/yii
   fi
 fi

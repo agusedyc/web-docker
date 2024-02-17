@@ -34,11 +34,6 @@ jobs:
             dockerfile-flavour: "debian"
             compose-file: "docker-compose.yml,docker-compose.fpm-nginx.yml"
             experimental: false
-          # - php-base-image-version: "8.3-fpm"
-          #   dockerfile-flavour: "debian"
-          #   compose-file: "docker-compose.yml,docker-compose.fpm-nginx.yml"
-          #   pecl-xdebug-suffix: "-beta"
-          #   experimental: true
           - php-base-image-version: "8.0-apache"
             dockerfile-flavour: "debian"
             experimental: false
@@ -48,10 +43,6 @@ jobs:
           - php-base-image-version: "8.2-apache"
             dockerfile-flavour: "debian"
             experimental: false
-          # - php-base-image-version: "8.3-apache"
-          #   dockerfile-flavour: "debian"
-          #   pecl-xdebug-suffix: "-beta"
-          #   experimental: true
       fail-fast: false
     env:
       COMPOSE_FILE: ${{ matrix.compose-file }}
@@ -68,7 +59,7 @@ jobs:
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v2
         with:
-          platforms: "amd64,arm64"
+          platforms: "amd64"
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v2
       - name: Set version suffix (tags)
@@ -112,17 +103,10 @@ jobs:
         with:
           username: ${{ secrets.DOCKERHUB_USER }}
           password: ${{ secrets.DOCKERHUB_PASS }}
-      - name: Build and push docker image (amd64 master/latest)
+      - name: Build and push docker image (amd64)
         uses: docker/bake-action@v2
         with:
           files: ${{ matrix.compose-file }}
           push: true
           set: |
             *.platform=linux/amd64
-      - name: Build and push docker image (amd64,arm64)
-        uses: docker/bake-action@v2
-        with:
-          files: ${{ matrix.compose-file }}
-          push: true
-          set: |
-            *.platform=linux/amd64,linux/arm64

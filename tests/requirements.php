@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Application requirement checker script.
  *
@@ -71,6 +72,13 @@ $requirements = array(
         'memo' => 'Required for MySQL database.',
     ),
     array(
+        'name' => 'PDO SQL Server extension',
+        'mandatory' => false,
+        'condition' => extension_loaded('pdo_sqlsrv'),
+        'by' => 'All DB-related classes',
+        'memo' => 'Required for SQL Server database.',
+    ),
+    array(
         'name' => 'PDO PostgreSQL extension',
         'mandatory' => false,
         'condition' => extension_loaded('pdo_pgsql'),
@@ -81,7 +89,7 @@ $requirements = array(
         'name' => 'MongoDB extension',
         'mandatory' => false,
         'condition' => extension_loaded('mongodb'),
-        'by' => '<a href="https://www.yiiframework.com/extension/yiisoft/yii2-mongodb/doc/guide/2.2/en">MongoDB</a>',
+        'by' => 'All DB-related classes',
         'memo' => 'Required for MongoDB database.',
     ),
     // Cache :

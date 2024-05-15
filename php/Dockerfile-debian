@@ -30,6 +30,7 @@ RUN chmod 755 \
 
 
 FROM min as dev
+ARG PECL_IMAGICK_INSTALL_SUFFIX
 ARG PECL_MONGODB_INSTALL_SUFFIX
 ARG PECL_XDEBUG_INSTALL_SUFFIX
 
@@ -55,7 +56,7 @@ RUN install-php-extensions \
         pdo_sqlsrv \
         pdo_mysql \
         pdo_pgsql \
-        imagick \
+        imagick${PECL_IMAGICK_INSTALL_SUFFIX} \
         mongodb${PECL_MONGODB_INSTALL_SUFFIX} \
         xdebug${PECL_XDEBUG_INSTALL_SUFFIX}
 

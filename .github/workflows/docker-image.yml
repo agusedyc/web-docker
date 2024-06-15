@@ -22,7 +22,7 @@ jobs:
         # pecl-mongodb-suffix: ""
         # compose-file: "docker-compose.yml:..."
         include:
-          - php-base-image-version: "7.1.0-fpm"
+          - php-base-image-version: "7.1-fpm"
             dockerfile-flavour: "debian"
             compose-file: "docker-compose.yml,docker-compose.fpm-nginx.yml"
             experimental: false

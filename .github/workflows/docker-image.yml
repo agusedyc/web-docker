@@ -22,6 +22,10 @@ jobs:
         # pecl-mongodb-suffix: ""
         # compose-file: "docker-compose.yml:..."
         include:
+          - php-base-image-version: "7.2-fpm"
+            dockerfile-flavour: "debian"
+            compose-file: "docker-compose.yml,docker-compose.fpm-nginx.yml"
+            experimental: false
           - php-base-image-version: "7.1-fpm"
             dockerfile-flavour: "debian"
             compose-file: "docker-compose.yml,docker-compose.fpm-nginx.yml"
@@ -45,6 +49,9 @@ jobs:
             pecl-imagick-suffix: "/imagick@master"
             experimental: false
           - php-base-image-version: "7.1-apache"
+            dockerfile-flavour: "debian"
+            experimental: false
+          - php-base-image-version: "7.2-apache"
             dockerfile-flavour: "debian"
             experimental: false
           - php-base-image-version: "8.1-apache"
